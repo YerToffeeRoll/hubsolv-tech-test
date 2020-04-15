@@ -91,5 +91,29 @@ public $successStatus = 200;
        return response()->json(['success'=>$success], 201);
      }
 
+     /**
+       * Store a newly created book.
+       *
+       * @return Response
+       */
+      public function categories(Request $request){
+        //get the all the unique rows for categories
+        $categories = Book::select('category')->groupBy('category')->get()->toArray();
+
+
+        $all = '';
+        //create one big string
+        foreach($categories as $category){
+          $all .= implode(',',$category).',';
+        }
+
+        //here we have some jiggery pokery to clean up the strings
+        $cat_array = explode(',',str_replace(' ', '',substr($all, 0, -1)));
+        //assign to a key
+        $success['categories'] = array_unique($cat_array);
+
+        return response()->json(['success'=>$success], 200);
+      }
+
 
 }

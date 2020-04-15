@@ -24,5 +24,5 @@ Route::group(['middleware' => 'auth:api'], function(){
       Route::get('book', 'API\BookController@index');
       Route::get('book/search?', 'API\BookController@show');
       Route::post('book', 'API\BookController@store');
-
+      Route::get('categories', 'API\BookController@categories');
 });
