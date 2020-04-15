@@ -42,20 +42,30 @@ public $successStatus = 200;
      */
     public function register(Request $request)
     {
+        //we can use laravel validator functionality for -
+        //validating our register
           $validator = Validator::make($request->all(), [
               'name' => 'required',
-              'email' => 'required|email',
+              'email' => 'required|unique:users|email',
               'password' => 'required',
               'c_password' => 'required|same:password',
             ]);
+
+            //if the validator fails return error payload
               if ($validator->fails()) {
                         return response()->json(['error'=>$validator->errors()], 401);
                     }
+
+          //get the request data
           $input = $request->all();
-              $input['password'] = bcrypt($input['password']);
-              $user = User::create($input);
-              $success['token'] =  $user->createToken('MyApp')-> accessToken;
-              $success['name'] =  $user->name;
+
+          //create a new user and api token
+          $input['password'] = bcrypt($input['password']);
+          $user = User::create($input);
+          $success['token'] =  $user->createToken('MyApp')-> accessToken;
+          $success['name'] =  $user->name;
+
+        // return a successful payload
         return response()->json(['success'=>$success], $this-> successStatus);
   }
 
