@@ -1,16 +1,3 @@
-<h1>Scenario</h1>
-<p align="center">is proving difficult to maintain and currently has no test coverage that we are looking to
-replace. We are looking to build a RESTful json API. You have been tasked with developing
-a proof of concept that can demonstrate best practices in modern web development with a
-focus on designing something which is maintainable and testable</p>
-
-
-
-
-
-
-
-
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
@@ -21,6 +8,16 @@ focus on designing something which is maintainable and testable</p>
 </p>
 
 ## About Laravel
+
+
+
+<h1>Scenario</h1>
+
+We are an online retailer specialising in technology books. We have a legacy system which
+is proving difficult to maintain and currently has no test coverage that we are looking to
+replace. We are looking to build a RESTful json API. You have been tasked with developing
+a proof of concept that can demonstrate best practices in modern web development with a
+focus on designing something which is maintainable and testable.
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
