@@ -37,7 +37,7 @@ public $successStatus = 200;
      */
     public function show(Request $request){
 
-        //lets build up a query 
+        //lets build up a query
         $books = DB::table('books');
 
         //lets filter by the author
@@ -63,40 +63,8 @@ public $successStatus = 200;
       */
      public function store()
      {
-
+        
      }
 
 
-    /**
-      * Uopdate a book.
-      *
-      * @return Response
-      */
-     public function update()
-     {
-     }
-
-
-    /**
-    * Remove a book
-    *
-    * @param  int  $id
-    * @return Response
-    */
-    public function destroy()
-    {
-
-    }
-
-
-    /**
-    * Remove a book
-    *
-    * @param  int  $id
-    * @return Response
-    */
-    public function filter()
-    {
-
-    }
 }
