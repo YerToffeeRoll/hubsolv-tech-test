@@ -61,9 +61,32 @@ public $successStatus = 200;
       *
       * @return Response
       */
-     public function store()
-     {
-        
+     public function store(Request $request){
+       //we can use laravel validator functionality for -
+       //validating our register
+         $validator = Validator::make($request->all(), [
+             'ISBN' => 'required|alpha_dash',
+             'title' => 'required',
+             'author' => 'required',
+             'category' => 'required',
+             'price' => 'required',
+           ]);
+
+       //if the validator fails return error payload
+         if ($validator->fails()) {
+                   return response()->json(['error'=>$validator->errors()], 422);
+               }
+
+         //get the request data
+         $input = $request->all();
+
+         //create a new user and api token
+         $input = $request->all();
+         $book = Book::create($input);
+         $success['book'] =  $book;
+
+       // return a successful payload
+       return response()->json(['success'=>$success], 201);
      }
 
 
