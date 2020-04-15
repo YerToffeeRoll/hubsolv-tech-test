@@ -19,5 +19,5 @@ Route::post('register', 'API\UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
   Route::post('user/details', 'API\UserController@details');
   //create a book resource route
-  Route::resource('book', 'BookController');
+  Route::resource('book', 'API\BookController');
 });
