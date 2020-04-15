@@ -2,21 +2,36 @@
 
 namespace Tests\Feature\Auth;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 
 class LoginControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function testLoginError()
     {
-        $response = $this->get('/');
+        $this->json('POST', 'api/login')
+            ->assertStatus(401)
+            ->assertJson(['error'=>'Unauthorised']);
 
-        $response->assertStatus(200);
     }
-}
+
+    public function testUserLoginSuccessfully()
+    {
+        $user = ['email' => 'user@email.com', 'password' => 'userpass'];
+        $this->json('POST', 'api/login', $user)
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                      'success'=>[
+                        'token',
+                        'user' => [
+                            'id',
+                            'name',
+                            'email',
+                            'created_at',
+                            'updated_at'
+                        ]
+                  ],
+            ]);
+    }
