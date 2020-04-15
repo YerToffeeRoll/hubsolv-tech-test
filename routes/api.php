@@ -20,4 +20,9 @@ Route::group(['middleware' => 'auth:api'], function(){
   Route::post('user/details', 'API\UserController@details');
   //create a book resource route
   Route::resource('book', 'API\BookController');
+
+      Route::get('book', 'API\BookController@index');
+      Route::get('book/search?', 'API\BookController@show');
+      Route::post('book', 'API\BookController@store');
+
 });
