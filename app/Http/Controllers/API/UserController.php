@@ -25,7 +25,7 @@ public $successStatus = 200;
             $user = Auth::user();
             //create a success payload and create a valid api token
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
-
+            $success['user'] =  $user ;
             //return a successful json response
             return response()->json(['success' => $success], $this-> successStatus);
         }
@@ -60,13 +60,26 @@ public $successStatus = 200;
           $input = $request->all();
 
           //create a new user and api token
+          $input = $request->all();
           $input['password'] = bcrypt($input['password']);
           $user = User::create($input);
           $success['token'] =  $user->createToken('MyApp')-> accessToken;
-          $success['name'] =  $user->name;
+          $success['user'] =  $user;
 
         // return a successful payload
         return response()->json(['success'=>$success], $this-> successStatus);
   }
 
+
+  /**
+       * get current user details api
+       *
+       * @return \Illuminate\Http\Response
+       */
+      public function details()
+      {
+
+          $user = Auth::user();
+          return response()->json(['success' => $user], $this-> successStatus);
+      }
 }
