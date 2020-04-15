@@ -70,11 +70,13 @@ public $successStatus = 200;
              'author' => 'required',
              'category' => 'required',
              'price' => 'required',
-           ]);
+           ],
+           ['ISBN.alpha_dash'    => 'Invalid ISBN',]
+          );
 
        //if the validator fails return error payload
          if ($validator->fails()) {
-                   return response()->json(['error'=>$validator->errors()], 422);
+                   return response()->json(['error'=>$validator->errors()], 400);
                }
 
          //get the request data

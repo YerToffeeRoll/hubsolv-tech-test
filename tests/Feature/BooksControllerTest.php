@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class BooksControllerTest extends TestCase
 {
     /**
-     * Test .
+     * Test login and get books
      *
      * @return void
      */
@@ -136,7 +136,7 @@ class BooksControllerTest extends TestCase
                  'author'=>'Josh Lockhart',
                  'category'=>'PHP',
                  'price' => '18.99'], $headers)
-                 ->assertStatus(422)
+                 ->assertStatus(400)
                  ->assertJsonStructure([
                      'error'=>[
                            'ISBN'
