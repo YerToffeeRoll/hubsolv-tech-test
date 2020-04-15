@@ -16,7 +16,5 @@ class Book extends Model
             'ISBN', 'title', 'author', 'category','price'
         ];
 
-  
-}
 
-});
+}
