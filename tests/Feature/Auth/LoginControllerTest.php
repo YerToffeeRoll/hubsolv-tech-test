@@ -35,3 +35,4 @@ class LoginControllerTest extends TestCase
                   ],
             ]);
     }
+}

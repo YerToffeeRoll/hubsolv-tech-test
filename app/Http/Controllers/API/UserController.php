@@ -53,7 +53,7 @@ public $successStatus = 200;
 
             //if the validator fails return error payload
               if ($validator->fails()) {
-                        return response()->json(['error'=>$validator->errors()], 401);
+                        return response()->json(['error'=>$validator->errors()], 422);
                     }
 
           //get the request data
