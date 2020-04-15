@@ -1,3 +1,16 @@
+<h1>Scenario</h1>
+<p align="center">is proving difficult to maintain and currently has no test coverage that we are looking to
+replace. We are looking to build a RESTful json API. You have been tasked with developing
+a proof of concept that can demonstrate best practices in modern web development with a
+focus on designing something which is maintainable and testable</p>
+
+
+
+
+
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
